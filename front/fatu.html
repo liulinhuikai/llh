@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/llh.css">
     <script type="text/javascript" src="js/jquery.js"></script>
+    <style type="text/css">
+      .toolbar-inner a{
+        width: 50%!important;
+      }
+    </style>
 </head>
 <body>
   <!-- Status bar overlay for fullscreen mode-->
@@ -26,9 +31,9 @@
         <div class="navbar whiteBGColor">
           <div class="navbar-inner">
             <div class="left">
-              <a href="javascript:history.go(-1)" class="external blackColor"><i class="fas fa-angle-left  fa-lg"></i></a>
+              <a href="javascript:history.go(-1)" class="external blackColor"><i class="fas fa-angle-left fa-lg"></i></a>
             </div>
-            <div class="center sliding">发布文章</div>
+            <div class="center sliding">发布图片</div>
             <div class="right">
               <a href="#" style="color:Tomato">发布</a>
             </div>
@@ -38,26 +43,12 @@
           <div class="page-content">
             <div class="list-block">
           <ul>
-            <!-- Text inputs -->
-            <li>
-              <div class="item-content">
-                <div class="item-media"><i class="icon icon-form-name"></i></div>
-                <div class="item-inner">
-                  <div class="item-title label">标题：</div>
-                  <div class="item-input">
-                    <input type="text" placeholder="给你的文章起个标题吧">
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!-- Textarea -->
+            <!-- Additional "align-top" class for correct textarea alignment -->
             <li class="align-top">
               <div class="item-content">
-                <div class="item-media"><i class="icon icon-form-comment"></i></div>
                 <div class="item-inner">
-                  <div class="item-title label">正文：</div>
                   <div class="item-input">
-                    <textarea style="height:300px" placeholder="说点什么吧"></textarea>
+                    <textarea name="message" style="height:200px" placeholder="想要怎么描述图片呢"></textarea>
                   </div>
                 </div>
               </div>
@@ -69,16 +60,16 @@
       <!-- Bottom Toolbar-->
         <div class="toolbar tabbar tabbar-labels">
           <div class="toolbar-inner">
-              <a href="#" class="tab-link active" style="border-right:solid 1px #BDBDBD">
-                  <i class="icon fas fa-camera  fa-lg" style="color:Tomato"></i>
-                  <span class="tabbar-label redColor">添加照片</span>
-                     <input type="file" id="img-file"  capture="camera" multiple accept="image/*" onchange="handleFiles(this)" style="opactiy:0"/> 
-              </a>
-              <a href="find.html" class="tab-link">
-                  <i class="icon fas fa-music fa-lg" style="color:Tomato"></i>
-                  <span class="tabbar-label redColor">添加音乐</span>
-                     <input type="file" id="img-file"  capture="camera" multiple accept="image/*" onchange="handleFiles(this)" style="opactiy:0"/> 
-              </a>
+            <a href="javascript:;" class="tab-link active" style="border-right:solid 1px #BDBDBD">
+              <i class="icon fas fa-camera  fa-lg" style="color:Tomato"></i>
+              <span class="tabbar-label redColor">添加照片</span>
+              <input type="file" id="img-file"  capture="camera" multiple accept="image/*" onchange="handleFiles(this)"/> 
+            </a>
+            <a href="javascript:;" class="tab-link">
+              <i class="icon fas fa-music fa-lg" style="color:Tomato"></i>
+              <span class="tabbar-label redColor">添加音乐</span>
+              <input type="file" id="img-file"  capture="camera" multiple accept="image/*" onchange="handleFiles(this)" style="opactiy:0"/> 
+            </a>  
           </div>
         </div><!-- toolbar end -->
        </div>
