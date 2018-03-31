@@ -13,7 +13,7 @@
 <body class="gray-bg">
     <div class="wrapper wrapper-content">
         <div class="row clearfix">
-        <form action="__MODULE__/User/batchDelete" method="post">
+        <form action="__MODULE__/Users/batchDelete" method="post">
         <div class="col-md-12 column">
             <table class="table table-hover table-bordered">
                 <thead>
@@ -21,37 +21,37 @@
                         <th></th>
                         <th>头像</th>
                         <th>用户名</th>
-                        <th>称呼</th>
                         <th>性别</th>
+                        <th>出生日期</th>
                         <th>邮箱地址</th>
                         <th>手机号</th>
                         <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
-                  <volist name="user" id="vl">
+                  <volist name="users" id="vl">
                     <tr>
-                        <td><input type="checkbox" name="id[]" id="userCheckbox" value="{$vl.id}"></td>
+                        <td><input type="checkbox" name="id[]" id="userCheckbox" value="{$vl.userid}"></td>
                         <td>
-                          {$vl.headimg}
+                          <img alt="140x140" src="__PUBLIC__/{$vl.headimg}" class="img-circle img-xs" width="44" height="44" />
                         </td>
                         <td>
                            {$vl.username}
                         </td>
                         <td>
-                            {$vl.call}
+                            {$vl.sex}
                         </td>
                         <td>
-                           {$vl.sex}
+                           {$vl.birth}
                         </td>
                         <td>
-                           {$vl.e-mail}
+                           {$vl.email}
                         </td>
                          <td>
-                           {$vl.phonenum}
+                           {$vl.mobile}
                         </td>
                         <td>
-                            <a href="__MODULE__/User/delete/id/{$vl.id}"><button type="button" class="btn btn-link ">
+                            <a href="__MODULE__/Users/delete/id/{$vl.userid}"><button type="button" class="btn btn-link ">
                               <span class="glyphicon  glyphicon-trash"></span>
                               删除     
                             </button>
@@ -75,27 +75,7 @@
         </div>
         <div class="col-md-6 column">
             <ul class="pagination pagination-lg ">
-                <li>
-                     <a href="#">上一页</a>
-                </li>
-                <li>
-                     <a href="#">1</a>
-                </li>
-                <li>
-                     <a href="#">2</a>
-                </li>
-                <li>
-                     <a href="#">3</a>
-                </li>
-                <li>
-                     <a href="#">4</a>
-                </li>
-                <li>
-                     <a href="#">5</a>
-                </li>
-                <li>
-                     <a href="#">下一页</a>
-                </li>
+                {$page}
             </ul>
         </div>
         </div>
