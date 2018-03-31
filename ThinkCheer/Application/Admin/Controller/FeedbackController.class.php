@@ -3,22 +3,22 @@ namespace Admin\Controller;
 use Think\Controller;
 class FeedbackController extends Controller {
     public function index(){
-        $User = M('feedback'); 
-        $count      = $User->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page($count,3);// 实例化分页类 传入总记录数和每页显示的记录数
-        $orderby['id']='ASC';
+        // $User = M('feedback'); 
+        // $count      = $User->count();// 查询满足要求的总记录数
+        // $Page       = new \Think\Page($count,3);// 实例化分页类 传入总记录数和每页显示的记录数
+        // $orderby['id']='ASC';
 
-        $feedback = $User->order($orderby)->limit($Page->firstRow.','.$Page->listRows)->select();
+        // $feedback = $User->order($orderby)->limit($Page->firstRow.','.$Page->listRows)->select();
 
-        $this->assign('feedbacks',$feedback);// 赋值数据集
-        $Page -> setConfig('first','首页');
-        $Page -> setConfig('last','共%TOTAL_PAGE%页');
-        $Page -> setConfig('prev','上一页');
-        $Page -> setConfig('next','下一页');
-        $Page -> setConfig('link','indexpagenumb');//pagenumb 会替换成页码
-        $Page -> setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
-        $show= $Page->show();
-        $this->assign('page',$show);// 赋值分页输出
+        // $this->assign('feedbacks',$feedback);// 赋值数据集
+        // $Page -> setConfig('first','首页');
+        // $Page -> setConfig('last','共%TOTAL_PAGE%页');
+        // $Page -> setConfig('prev','上一页');
+        // $Page -> setConfig('next','下一页');
+        // $Page -> setConfig('link','indexpagenumb');//pagenumb 会替换成页码
+        // $Page -> setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
+        // $show= $Page->show();
+        // $this->assign('page',$show);// 赋值分页输出
 
         $this->display(); // 输出模板
 	}
