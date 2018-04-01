@@ -33,18 +33,19 @@
           </div>
         </div>
         <div class="article_list article_list_0">
+             <volist name="article" id="vo">
+                <a class="list_item js_post" href="__MODULE__/Picture/content/id/{$vo.pid}">
+                    <div class="cover">
+                        <img class="img js_img" src="__PUBLIC__/{$vo.img}" alt="">
+                    </div>
+                    <div class="cont">
+                        <h2 class="title js_title">【壁纸】{$vo.title}</h2>
+                        <p class="desc">{$vo.shu}</p>
+                    </div>
+                </a>
+            </volist>
             
-            <a class="list_item js_post" href="tuxiang.html">
-                <div class="cover">
-                    <img class="img js_img" src="http://mmbiz.qpic.cn/mmbiz_jpg/6wFeUZnN7dYCibibawhkBS0WQhPs5HQUI9EGkYaqc1uoia0GTZNqIgicwOvID0GlRXOgopibISZBZ7HsurZK8DFauTw/0" alt="">
-                </div>
-                <div class="cont">
-                    <h2 class="title js_title">【壁纸】明天是大雪，可我想念夏</h2>
-                    <p class="desc"></p>
-                </div>
-            </a>
-            
-            <a class="list_item js_post" href="tuxiang.html">
+           <!--  <a class="list_item js_post" href="tuxiang.html">
                 <div class="cover">
                     <img class="img js_img" src="http://mmbiz.qpic.cn/mmbiz_jpg/6wFeUZnN7dZQhIyw6t2sQ1Wruo2yYc1fkXf0zLQAJXkpp4qc0GnA4ZzGXQZVHftELXVB9vRltoqVVUoa47HCIA/0" alt="">
                 </div>
@@ -82,7 +83,7 @@
                     <h2 class="title js_title">壁纸   |   All blue</h2>
                     <p class="desc">此时的心情很蓝就对了</p>
                 </div>
-            </a>
+            </a> -->
        
             
         </div>

@@ -38,9 +38,10 @@
                         <div id="img-content">
                 
                 <h2 class="rich_media_title" id="activity-name">
-                    壁纸   |   宫崎骏动漫                                    </h2>
+                    壁纸   |
+                       {$article['title']}                                       </h2>
                 <div id="meta_content" class="rich_media_meta_list">
-                                                            <em id="post-date" class="rich_media_meta rich_media_meta_text">2017-12-01</em>
+                                                            <em id="post-date" class="rich_media_meta rich_media_meta_text"> {$article['date']}  </em>
 
                                         <a class="rich_media_meta rich_media_meta_link rich_media_meta_nickname" href="##" id="post-user">MOVIE电影记</a>
                     <span class="rich_media_meta rich_media_meta_text rich_media_meta_nickname">MOVIE电影记</span>
@@ -50,15 +51,15 @@
                 </div>
                 <div class="rich_media_content " id="js_content" deep="4">
                     
-                    <p style="white-space: normal;text-align: center;"><span style="font-size: 12px;">“愿你每一天的成长都有我们相伴</span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 12px;">直到最后你变成了自己最向往的模样”</span></p>
+                    <p style="white-space: normal;text-align: center;"><span style="font-size: 12px;"> {$article['shu']}  </span></p>
                 </div>
                 
                 <div class="imglist">
-                    <img src="__PUBLIC__/front/img/tu1.jpg" />
-                    <img src="__PUBLIC__/front/img/tu2.jpg" />
+                    <img src="__PUBLIC__/{$article['img']}" />
+                 <!--    <img src="__PUBLIC__/front/img/tu2.jpg" />
                     <img src="__PUBLIC__/front/img/tu3.jpg" />
                     <img src="__PUBLIC__/front/img/tu4.jpg" />
-                    <img src="__PUBLIC__/front/img/tu5.jpg" />
+                    <img src="__PUBLIC__/front/img/tu5.jpg" /> -->
                 </div>
                 
                   <p style="text-indent: 28px; line-height: 1.75em;"><span style=";font-family:宋体;font-size:14px">&nbsp;</span></p><hr><p><br></p><p><br></p>          

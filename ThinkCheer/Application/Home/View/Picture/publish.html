@@ -33,73 +33,59 @@
 </head>
 <body>
   <!-- Status bar overlay for fullscreen mode-->
-    <div class="statusbar-overlay"></div>
+    <!-- <div class="statusbar-overlay"></div> -->
     <!-- Views-->
-   <form action="__MODULE__/Article/doPublish" method="post" enctype="multipart/form-data" class="views whiteBGColor">
-    
+   
+    <form action="__MODULE__/Picture/doPublish" method="post" enctype="multipart/form-data" class="views whiteBGColor">
       <!-- Your main view, should have "view-main" class-->
       <div class="view view-main whiteBGColor">
         <!-- Top Navbar-->
+         <form method="post" action="" enctype="multipart/form-data" >
         <div class="navbar whiteBGColor">
           <div class="navbar-inner">
             <div class="left">
-              <a href="javascript:history.go(-1)" class="external blackColor"><i class="fas fa-angle-left  fa-lg"></i></a>
+              <a href="javascript:history.go(-1)" class="external blackColor"><i class="fas fa-angle-left fa-lg"></i></a>
             </div>
-            <div class="center sliding">发布文章</div>
+            <div class="center sliding">发布图片</div>
             <div class="right">
-             <button type="submit" name="submit" style="color:Tomato;background-color:#fff;display:block;font-size:16px;opactiy:0;border:none">发布</button>
+               <button type="submit" name="submit" style="color:Tomato;background-color:#fff;display:block;font-size:16px;opactiy:0;border:none">发布</button>
             </div>
           </div>
         </div>
-   
         <div class="pages navbar-through toolbar-through whiteBGColor">
           <div class="page-content">
             <div class="list-block">
               <ul>
-                <!-- Text inputs -->
-                <li>
-                  <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-name"></i></div>
-                    <div class="item-inner">
-                      <div class="item-title label">标题：</div>
-                      <div class="item-input">
-                        <input type="text" placeholder="给你的文章起个标题吧" name="title">
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <!-- Textarea -->
+                <!-- Additional "align-top" class for correct textarea alignment -->
                 <li class="align-top">
                   <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-comment"></i></div>
                     <div class="item-inner">
-                      <div class="item-title label">正文：</div>
                       <div class="item-input">
-                        <textarea style="height:200px" placeholder="说点什么吧" name="content"></textarea>
+                        <textarea name="message" style="height:200px" placeholder="想要怎么描述图片呢" name="title"></textarea>
                       </div>
                     </div>
                   </div>
                 </li>
               </ul>
-          </div>
+             </div>
           </div>
       </div>
       <!-- Bottom Toolbar-->
-        <div class="toolbar tabbar tabbar-labels">
-          <div class="toolbar-inner" style="padding:0">
-              <a href="#" class="tab-link active" style="border-right:solid 1px #BDBDBD">
-                  <i class="icon fas fa-camera  fa-lg" style="color:Tomato"></i>
-                  <span class="tabbar-label redColor">添加照片</span>
-                     <input type="file" id="img-file"   name="photo" style="opactiy:0"/> 
-              </a>
-            
-          </div>
-        </div><!-- toolbar end -->
-     <!--    <input type="submit" name="submit" class="btn btn-primary" value="提交"> -->
+      <div class="toolbar tabbar tabbar-labels" >
+        <div class="toolbar-inner" style="padding:0">
+          <a href="javascript:;" class="tab-link active" style="border-right:solid 1px #BDBDBD">
+            <i class="icon fas fa-camera  fa-lg" style="color:Tomato"></i>
+            <span class="tabbar-label redColor">添加照片</span>
+            <input type="file" id="img-file" name="camera" /> 
+          </a>
+         
+        </div>
+      </div><!-- toolbar end -->
        
-       </div>
-        </form>
+      </div>
+      </form>
     
+   
   <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="__PUBLIC__/front/js/jquery-2.2.2.js"></script>
     <script type="text/javascript" src="__PUBLIC__/front/js/framework7.min.js"></script>

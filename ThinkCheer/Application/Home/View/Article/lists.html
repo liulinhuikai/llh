@@ -32,18 +32,19 @@
         </div>
      <div id="js_plugins" style="visibility: visible;">
       <div class="article_list js_plugin" id="namespace_0" data-pid="3">
+  <volist name="article" id="vo">
+    <a class="list_item js_post" href="__MODULE__/Article/content/id/{$vo.aid}">
+      <div class="cover">
+        <img class="img js_img" src="__PUBLIC__/{$vo.img}" alt="">
+      </div>
+      <div class="cont">
+        <h2 class="title js_title">{$vo.title}</h2>
+        <p class="desc">{$vo.shu}</p>
+      </div>
+    </a>
+  </volist>
   
-  <a class="list_item js_post" href="wenxiang.html">
-    <div class="cover">
-      <img class="img js_img" src="__PUBLIC__/front/img/wenzhang1.jpg" alt="">
-    </div>
-    <div class="cont">
-      <h2 class="title js_title">那年我在工地</h2>
-      <p class="desc">我相信，总有一天，王叔会回来的。</p>
-    </div>
-  </a>
-  
-  <a class="list_item js_post" href="wenxiang.html">
+ <!--  <a class="list_item js_post" href="wenxiang.html">
     <div class="cover">
       <img class="img js_img" src="__PUBLIC__/front/img/wenzhang2.jpg" alt="">
     </div>
@@ -83,7 +84,7 @@
       <p class="desc">我们渺小的主人公有一个伟大的梦想，就是做一回武侠小说里的主角，
 但，这注定是一个悲催的故事。</p>
     </div>
-  </a>
+  </a> -->
   
 </div>
     </div>

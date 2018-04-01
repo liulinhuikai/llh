@@ -3,113 +3,54 @@ namespace Home\Controller;
 use Think\Controller;
 class PictureController extends Controller {
 
-      public function list(){
+      public function lists(){
+        $Model = M('picture');
+        $article = $Model->table("picture")->select();
+        // dump($article);
+        $this->assign("article", $article);
         $this->display();
     }
-     public function content(){
+   public function content(){
+         $Model = M('picture');
+         $getid = I("id");//获取上页的id
+         // dump($getid);
+        $article = $Model->where("pid = $getid")->find();
+        // dump($article);
+        $this->assign("article", $article);
         $this->display();
     }
-    public function picture(){
-    	//1获取数据
-    	$Model=M('picture'); 
-        //连接数据表
-    	$order=$Model->join('address ON orderform.addressid = address.id')->join('user ON orderform.makerid = user.id');
-        // $where =$Model['purchaserid']=array('EQ','NULL'); 
-        //添加购买者id为空，表示不等待订单
-        $order=$order->where('purchaserid is null');
-        $order=$order->order("oid desc")->select();
-        
-        for($i = 0; $i < count($order); $i++) {
-            $order[$i]["ingredients"] = explode("&", $order[$i]["ingredients"]);
-            $order[$i]["amount"] = explode("&", $order[$i]["amount"]);
+    public function publish(){
+        $this->display();
+    }
+   public function doPublish(){
+        if(!IS_POST){
+            exit("bad request");
         }
-        // var_dump($order);
-
-        //2分配数据
-    	$this->assign("orders",$order);
-      
-    	//3显示视图
-    	$this->display();
-    }
-  
-    public function basketlist(){
-        //菜篮中别人的东西
-        $Model=M('orderform');
-        $userModel=M('user');
-        $order=$Model->join('address ON orderform.addressid = address.id')->join('user ON orderform.makerid = user.id');
-         $condition['username'] = I("session.username");//获取当前用户名
-        $id = $userModel->where($condition)->getField('id');//获取当前用户id
-
-        $order=$order->where("purchaserid = $id AND purchaserid <> makerid"  );
-        $order=$order->select();
-        for($i = 0; $i < count($order); $i++) {
-            $order[$i]["ingredients"] = explode("&", $order[$i]["ingredients"]);
-            $order[$i]["amount"] = explode("&", $order[$i]["amount"]);
+        
+        $booksModel = D("picture");
+        
+        if(!$booksModel->create()){
+            $this->error($booksModel->getError());
         }
-        $this->assign("orders",$order);
-        //菜篮中自己的订单
-        $Model1=M('orderform');
-        $userModel=M('user');
-        // $order1=$Model1->join('address ON orderform.addressid = address.id')->join('user ON orderform.makerid = user.id');
-        
-        $id = I("session.id");
-        // $order1=$order1->where("purchaserid = $id and purchaserid = makerid")->select();
-        $order1 = $Model1->where("makerid = purchaserid and makerid = $id")->select();
-        for($i = 0; $i < count($order1); $i++) {
-            $order1[$i]["ingredients"] = explode("&", $order1[$i]["ingredients"]);
-            $order1[$i]["amount"] = explode("&", $order1[$i]["amount"]);
+        $upload = new \Home\Controller\Upload();// 实例化上传类
+        $upload->maxSize  = 3145728 ;// 设置附件上传大小
+        $upload->allowExts  = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath = './Public';
+        $upload->savePath =  '/uploads/';// 设置附件上传目录    
+        $uploadPic = $upload->upload(); 
+        if(!$uploadPic) {// 上传错误提示错误信息
+            $this->error($upload->getError());
+        }else{
+
+            $bookdata['title'] = I("post.title");
+            $bookdata['img'] = $uploadPic['photo']['savepath'].$uploadPic['photo']['savename'];
+            // $bookdata['content'] = I("post.content");
+            
+            if($booksModel->filter('strip_tags')->add($bookdata)){
+                $this->success("添加成功",U("lists"));
+            }else{
+                $this->error("添加失败");
+            }
         }
-        // var_dump($order1);
-         $this->assign("orders1",$order1);
-        //3显示视图
-        $this->display();
-
-    }
-    public function destroy(){
-        //删除菜篮中的订单，回到不等待中
-         $Model=M('orderform');
-        $id=I('id');
-        // var_dump($id);
-        
-        $order1=$Model->join('address ON orderform.addressid = address.id')->join('user ON orderform.makerid = user.id');
-         $order1=$order1->where("oid=$id")->find(); 
-          // $order=$order->select();
-        // var_dump($order);
-        $order1['purchaserid']=null;
-        $Model->save($order1);
-        // $this->success('删除成功', 'basketlist');
-        $this->redirect('basketlist'); //直接跳转，不带计时后跳转
-         // var_dump($order['purchaserid']);    
-
-    }
-    public function get(){
-        //领取不等待中的订单，变到自己菜篮中
-        $Model=M('orderform');
-         $userModel=M('user');
-        $id=I('id');
-        
-        $order=$Model->join('address ON orderform.addressid = address.id')->join('user ON orderform.makerid = user.id');
-         $order=$order->where("oid=$id")->find(); 
-          // $order=$order->select();
-        // var_dump($order['purchaserid']);
-        $condition['username'] = I("session.username");//获取当前用户名
-        $order['purchaserid'] = $userModel->where($condition)->getField('id');//获取当前用户id
-
-        $Model->save($order);
-        $this->redirect('requestlist');
-        // if($Model->save($order)){
-        //     $this->success('领取成功', 'requestlist');
-        // } 
-
-    }
-    //生成订单页
-    public function makeorder(){
-        $userModel = M('user');
-        $addressModel = M('address');
-        $condition['username'] = I("session.username");//获取当前用户名
-        $userid = $userModel->where($condition)->getField('id');//获取当前用户id
-        $address = $addressModel->where("userid=$userid")->find();//获取当前用户的地址信息
-        $this->assign("address",$address);
-        $this->display();
     }
 }
