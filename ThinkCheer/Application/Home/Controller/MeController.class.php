@@ -3,28 +3,28 @@ namespace Home\Controller;
 use Think\Controller;
 class MeController extends Controller {
     public function index(){
-        $Model = M();
-        $name = I("session.username");
-        $id = I("session.id");
+        // $Model = M();
+        // $name = I("session.username");
+        // $id = I("session.id");
 
         // 当前用户发布的订单
         // 待领取的订单
-        $unclaimed = $Model->table("orderform a, user b")->where("a.makerid = b.id and a.makerid = $id and a.purchaserid is null")->limit(10)->select();
-        for ($i=0; $i < count($unclaimed) ; $i++) { 
-           $unclaimed[$i]["ingredients"] = str_replace("&", "、", $unclaimed[$i]["ingredients"]);
-        }
+        // $unclaimed = $Model->table("orderform a, user b")->where("a.makerid = b.id and a.makerid = $id and a.purchaserid is null")->limit(10)->select();
+        // for ($i=0; $i < count($unclaimed) ; $i++) { 
+        //    $unclaimed[$i]["ingredients"] = str_replace("&", "、", $unclaimed[$i]["ingredients"]);
+        // }
         // 已领取的订单
         // 不显示自己发布领取的订单
         // $inProgress = $Model->table("orderform a, user b, user c")->where("a.makerid = b.id and a.makerid = $id and a.purchaserid <> $id and a.purchaserid = c.id")->limit(10)->select();
         // 显示自己发布领取的订单
-        $inProgress = $Model->table("orderform a, user b, user c")->where("a.makerid = b.id and a.makerid = $id and a.purchaserid = c.id")->limit(10)->select();
-        for ($i=0; $i < count($inProgress) ; $i++) { 
-           $inProgress[$i]["ingredients"] = str_replace("&", "、", $inProgress[$i]["ingredients"]);
-        }
+        // $inProgress = $Model->table("orderform a, user b, user c")->where("a.makerid = b.id and a.makerid = $id and a.purchaserid = c.id")->limit(10)->select();
+        // for ($i=0; $i < count($inProgress) ; $i++) { 
+        //    $inProgress[$i]["ingredients"] = str_replace("&", "、", $inProgress[$i]["ingredients"]);
+        // }
         // dump($inProgress);
         
-        $this->assign("unclaimed", $unclaimed);
-        $this->assign("inProgress", $inProgress);
+        // $this->assign("unclaimed", $unclaimed);
+        // $this->assign("inProgress", $inProgress);
         $this->display();
     }
 
