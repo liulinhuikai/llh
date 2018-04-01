@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>My App</title>
+  <!-- Path to Framework7 Library CSS-->
+  <link rel="stylesheet" href="__PUBLIC__/front/css/framework7.ios.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/front/css/framework7.ios.colors.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/front/css/fa-svg-with-js.css">
+  <!-- Path to your custom app styles-->
+  <link rel="stylesheet" href="__PUBLIC__/front/css/style.css">
+  <link rel="stylesheet" href="__PUBLIC__/front/css/llh.css">
+</head>
+<body>
+<!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Views-->
+    <div class="views whiteBGColor">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main whiteBGColor">
+        <!-- Top Navbar-->
+        <div class="navbar whiteBGColor">
+          <div class="navbar-inner">
+          	<div class="left">
+          		<a href="javascript:history.go(-1)" class="external blackColor"><i class="fas fa-angle-left fa-lg"></i></a> 
+          	</div>
+            <div class="center sliding">每日推荐</div>
+            <div class="right">
+              <a href="musicPlay.html" class="external grayColor"><i class="fas fa-music"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="pages navbar-through toolbar-through whiteBGColor">
+	        <div class="page-content">
+		        <ul>
+		        <volist name="commend" id="c">
+		        	<li style="padding-top:6%">
+		        	  <a href="__MODULE__/Commend/content/id/{$c.comid}" class="external">
+			        	  <div class="card demo-card-header-pic">
+			        		<div style="background:url(__PUBLIC__/{$c.img}) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">vol. {$c.comid} {$c.title}</div>
+			        		<span class="color-gray" style="float:right;padding-top:2%">
+			        			发布时间：{$c.date}
+			        		</span>
+			        	  </div>
+		        	  </a>
+		        	</li>
+		        </volist>
+		        	<li style="padding-top:6%">
+		        	  <a href="commendcontent.html" class="external">
+			        	  <div class="card demo-card-header-pic">
+			        		<div style="background:url(__PUBLIC__/front/img/commend2.jpg) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">vol. 2 看看周围的世界</div>
+			        		<span class="color-gray" style="float:right;padding-top:2%">
+			        			发布时间：2018-03-25
+			        		</span>
+			        	  </div>
+		        	  </a>
+		        	</li>
+		        	<li style="padding-top:6%">
+		        	  <a href="commendcontent.html" class="external">
+			        	  <div class="card demo-card-header-pic">
+			        		<div style="background:url(__PUBLIC__/front/img/commend3.jpg) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">vol. 1 在清风驻留的街道</div>
+			        		<span class="color-gray" style="float:right;padding-top:2%">
+			        			发布时间：2018-03-24
+			        		</span>
+			        	  </div>
+		        	  </a>
+		        	</li>
+		        	<li style="padding-top:6%">
+		        	  <a href="commendcontent.html" class="external">
+			        	  <div class="card demo-card-header-pic">
+			        		<div style="background:url(__PUBLIC__/front/img/commend3.jpg) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">vol. 1 在清风驻留的街道</div>
+			        		<span class="color-gray" style="float:right;padding-top:2%">
+			        			发布时间：2018-03-24
+			        		</span>
+			        	  </div>
+		        	  </a>
+		        	</li>
+		        </ul>
+	        </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="__PUBLIC__/front/js/jquery-2.2.2.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/front/js/framework7.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/front/js/fontawesome-all.min.js"></script>
+</body>
+</html>

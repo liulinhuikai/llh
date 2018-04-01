@@ -35,14 +35,15 @@
         </div>
         <div class="pages navbar-through toolbar-through whiteBGColor">
 	        <div class="page-content">
+	        <volist name="music" id="m">
 	        	<div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px">
                   <div class="col-5"></div>
                   <div class="col-20">
-                    <img src="__PUBLIC__/front/img/2.jpg" width="90%" style="border-radius:50%" class="userImg">
+                    <img src="__PUBLIC__/{$m.headimg}" width="90%" style="border-radius:50%" class="userImg">
                   </div>
                   <div class="col-50">
                      <div class="item-title-row" style="padding-top:5%">
-						捕梦人的疯狂摇滚
+						{$m.username}
                       </div>
                   </div>
                   <div class="col-20" style="padding-top:2%">
@@ -53,63 +54,31 @@
                 <!-- 标题图 -->
                 <div>
                 	<!-- banner图           -->
-            		<a href=""><img width="100%" src="__PUBLIC__/front/img/1.jpg"/></a>
+            		<a href=""><img width="100%" src="__PUBLIC__/{$m.img}"/></a>
                 </div>
                 <!-- 正文 -->
                 <!-- Add ".content-block-title" to add block's title -->
-			    <div class="content-block-title">Content block title</div>
+			    <div class="content-block-title">{$m.title}</div>
 			    <div class="content-block">
-			        <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
+			        <p>{$m.content}</p>
 			    </div>
 			    <!-- 正文end -->
 			    <!-- 音乐列表 -->
-			    <div class="content-block-title">音乐（共3首）</div>
+			    <div class="content-block-title"> 音乐列表</div>
 				<div class="list-block media-list">
 				  <ul>
 				    <li>
 					  	<div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px;margin-top:1px">
 		                  <div class="col-5"></div>
 		                  <div class="col-20">
-		                    <img src="__PUBLIC__/front/img/2.jpg" width="100%" class="userImg" style="padding-top:12%">
+		                    <img src="__PUBLIC__/{$m.img}" width="100%" class="userImg" style="padding-top:12%">
 		                  </div>
 		                  <div class="col-50">
-		                    <h3 style="padding-top:2%">致姓名</h3>
-		                    <p style="margin-top:2%">IU</p>
+		                    <h3 style="padding-top:2%">{$m.musicname}</h3>
+		                    <p style="margin-top:2%">{$m.musicauthor}</p>
 		                  </div>
 		                  <div class="col-20" style="padding-top:5%">
-		                    <a href="musicContent.html" class="grayColor"><i class="fas fa-play-circle   fa-2x"></i></a>
-		                  </div>
-		                  <div class="col-5"></div>
-		                </div>
-		            </li>
-		            <li>
-					  	<div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px;margin-top:1px">
-		                  <div class="col-5"></div>
-		                  <div class="col-20">
-		                    <img src="__PUBLIC__/front/img/2.jpg" width="100%" class="userImg" style="padding-top:12%">
-		                  </div>
-		                  <div class="col-50">
-		                    <h3 style="padding-top:2%">致姓名</h3>
-		                    <p style="margin-top:2%">IU</p>
-		                  </div>
-		                  <div class="col-20" style="padding-top:5%">
-		                    <a href="musicContent.html" class="grayColor"><i class="fas fa-play-circle   fa-2x"></i></a>
-		                  </div>
-		                  <div class="col-5"></div>
-		                </div>
-		            </li>
-		            <li>
-					  	<div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px;margin-top:1px">
-		                  <div class="col-5"></div>
-		                  <div class="col-20">
-		                    <img src="__PUBLIC__/front/img/2.jpg" width="100%" class="userImg" style="padding-top:12%">
-		                  </div>
-		                  <div class="col-50">
-		                    <h3 style="padding-top:2%">致姓名</h3>
-		                    <p style="margin-top:2%">IU</p>
-		                  </div>
-		                  <div class="col-20" style="padding-top:5%">
-		                    <a href="musicContent.html" class="grayColor"><i class="fas fa-play-circle   fa-2x"></i></a>
+		                    <a href="__MODULE__/Music/play/id/{$m.mid}" class="grayColor"><i class="fas fa-play-circle   fa-2x"></i></a>
 		                  </div>
 		                  <div class="col-5"></div>
 		                </div>
@@ -231,6 +200,7 @@
 					</li>
 				</ul>
 				<!-- 评论列表 end-->
+			</volist>
 	        </div>
 	    </div>
 	    <!-- 底部评论输入框-->

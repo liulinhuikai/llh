@@ -114,6 +114,7 @@
     <div class="views whiteBGColor">
       <!-- Your main view, should have "view-main" class-->
       <div class="view view-main whiteBGColor">
+      <volist name="music" id="vo">
         <!-- Top Navbar-->
         <div class="navbar whiteBGColor">
           <div class="navbar-inner">
@@ -121,9 +122,9 @@
           		<a href="javascript:history.go(-1)" class="external blackColor"><i class="fas fa-angle-left fa-lg"></i></a>
           	</div>
             <div class="center row">
-            	<div class="row">Rolling in the deep&nbsp;</div>
+            	<div class="row">{$vo.musicname}&nbsp;</div>
 
-            	<div class="row font16 grayColor"> -- Adele</div>
+            	<div class="row font16 grayColor"> -- {$vo.musicauthor}</div>
             </div>
             <div class="right">
             </div>
@@ -135,7 +136,7 @@
 		        <div class="row" style="padding-top:16%">
 		        	<div class="col-10"></div>
 		        	<div class="col-80">
-		        		<img src="__PUBLIC__/front/img/Adele.jpg" width="100%">
+		        		<img src="__PUBLIC__/{$vo.img}" width="100%">
 		        	</div>
 		        	<div class="col-10"></div>
 		        </div>
@@ -183,14 +184,13 @@
               </div>
             </div>
 		        <div class="row" style="padding-top:8%">
-		        	<audio id="audios" src="music/Adele-Rolling In The Deep.mp3" loop="loop"></audio><br/> 
+		        	<audio id="audios" src="__PUBLIC__/{$vo.musichref}" loop="loop"></audio><br/> 
               <audio id="audios1" src="music/脸红的思春期-Some1.mp3" loop="loop"></audio><br/> 
-		        </div>
-            
+		        </div>            
 		        <!-- 播放控制区 End-->
-	      </div>
-	        
+	      </div>	        
 	    </div>
+    </volist>
 	  </div>
 	</div>
   <!-- 音乐列表Picker -->

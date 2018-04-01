@@ -23,13 +23,14 @@
       <!-- Your main view, should have "view-main" class-->
      <div class="view view-main whiteBGColor">
       <div class="page"><!--加上这一句上下来才能自动隐藏-->
+      <volist name="commend" id="c">
         <!-- Top Navbar-->
         <div class="navbar whiteBGColor">
           <div class="navbar-inner">
           	<div class="left">
           		<a href="javascript:history.go(-1)" class="external blackColor"><i class="fas fa-angle-left fa-lg"></i></a> 
           	</div>
-            <div class="center sliding">03-26</div>
+            <div class="center sliding">{$c.date}</div>
             <div class="right">
               <a href="musicPlay.html" class="external grayColor"><i class="fas fa-music"></i></a>
             </div>
@@ -39,74 +40,42 @@
 	        <div class="page-content hide-bars-on-scroll">
 	        	<a href="#" class="external">
               <!-- 封面图 -->
-	        		<div style="background:url(__PUBLIC__/front/img/commend1.jpg) center no-repeat;background-size:cover;height:220px" valign="bottom" class="card-header color-white no-border">vol.3 微风徐来</div>
+	        		<div style="background:url(__PUBLIC__/{$c.img}) center no-repeat;background-size:cover;height:220px" valign="bottom" class="card-header color-white no-border">vol.{$c.comid} {$c.title}</div>
 	        	</a>
-            <h2 class="rich_media_title" id="activity-name" style="text-indent:1em;padding-top:4%">微风徐来 </h2>
+            <h2 class="rich_media_title" id="activity-name" style="text-indent:1em;padding-top:4%">{$c.title} </h2>
             <!-- 标签、日期 -->
             <div id="meta_content" class="rich_media_meta_list">
               <em id="post-date" class="rich_media_meta rich_media_meta_text">&nbsp;&nbsp;&nbsp;</em>
               <span id="copyright_logo" class="rich_media_meta meta_original_tag">图文</span>
               <span id="copyright_logo" class="rich_media_meta meta_original_tag">音乐</span>
-              <em id="post-date" class="rich_media_meta rich_media_meta_text" style="text-indent:1em">2018-03-26</em>
+              <em id="post-date" class="rich_media_meta rich_media_meta_text" style="text-indent:1em">{$c.date}</em>
             </div>
             <!-- 文章内容区 -->
             <div class="content-block">
+              <p style="text-indent:2em">{$c.content} </p>
+              <!-- <p style="text-indent:2em">Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
               <p style="text-indent:2em">Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
               <p style="text-indent:2em">Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
               <p style="text-indent:2em">Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-              <p style="text-indent:2em">Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-              <p style="text-indent:2em">Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-              <p style="text-indent:2em">Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
+              <p style="text-indent:2em">Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p> -->
             </div>
             <!-- 文章内容区 end-->
             <!-- 音乐列表 -->
-            <div class="content-block-title">音乐（共3首）</div>
+            <div class="content-block-title">音乐</div>
             <div class="list-block media-list">
               <ul>
                 <li>
                   <div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px;margin-top:1px">
                     <div class="col-5"></div>
                     <div class="col-20">
-                      <img src="__PUBLIC__/front/img/iup.jpg" width="100%" class="userImg" style="padding-top:12%">
+                      <img src="__PUBLIC__/{$c.img}" width="100%" class="userImg" style="padding-top:12%">
                     </div>
                     <div class="col-50">
                       <h3 style="padding-top:2%">致姓名</h3>
                       <p style="margin-top:2%">IU</p>
                     </div>
                     <div class="col-20" style="padding-top:5%">
-                      <a href="musicContent.html" class="grayColor"><i class="fas fa-play-circle   fa-2x"></i></a>
-                    </div>
-                    <div class="col-5"></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px;margin-top:1px">
-                    <div class="col-5"></div>
-                    <div class="col-20">
-                      <img src="__PUBLIC__/front/img/iup.jpg" width="100%" class="userImg" style="padding-top:12%">
-                    </div>
-                    <div class="col-50">
-                      <h3 style="padding-top:2%">致姓名</h3>
-                      <p style="margin-top:2%">IU</p>
-                    </div>
-                    <div class="col-20" style="padding-top:5%">
-                      <a href="musicContent.html" class="grayColor"><i class="fas fa-play-circle   fa-2x"></i></a>
-                    </div>
-                    <div class="col-5"></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px;margin-top:1px">
-                    <div class="col-5"></div>
-                    <div class="col-20">
-                      <img src="__PUBLIC__/front/img/iup.jpg" width="100%" class="userImg" style="padding-top:12%">
-                    </div>
-                    <div class="col-50">
-                      <h3 style="padding-top:2%">致姓名</h3>
-                      <p style="margin-top:2%">IU</p>
-                    </div>
-                    <div class="col-20" style="padding-top:5%">
-                      <a href="musicContent.html" class="grayColor"><i class="fas fa-play-circle   fa-2x"></i></a>
+                      <a href="__MODULE__/Commend/mplay/id/{$c.comid}" class="external grayColor"><i class="fas fa-play-circle fa-2x"></i></a>
                     </div>
                     <div class="col-5"></div>
                   </div>
@@ -137,6 +106,7 @@
             </div>
         </div>
       </div>
+    </volist>
     </div>
 	 </div>
 	</div>

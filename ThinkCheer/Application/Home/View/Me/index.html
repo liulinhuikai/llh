@@ -102,18 +102,19 @@
             </div> --> 
             <!-- <div class="card"> -->
               <!-- <div class="card-content"> -->
+            <volist name="users" id="vo">
                 <div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px">
                   <div class="col-5"></div>
                   <div class="col-33">
-                    <img src="__PUBLIC__/front/img/2.jpg" width="100%" style="border-radius:50%" id="userImg">
+                    <img src="__PUBLIC__/{$vo.headimg}" width="100%" style="border-radius:50%" id="userImg">
                   </div>
                   <div class="col-50">
                      <div class="item-title-row">
                         <!--item-title有黑体字的作用-->
-                        <div class="item-title font18">用户名</div>
+                        <div class="item-title font18"><?php echo I("session.username")?></div>
                       </div>
                       <div class="item-subtitle grayColor font11">
-                        <p>个人简介：暂无简介</p>
+                        <p>个人简介：{$vo.userintro}</p>
                       </div>
                   </div>
                   <div class="col-5" style="padding-top:6%">
@@ -123,6 +124,7 @@
                   </div>
                   <div class="col-10"></div>
                 </div>
+            </volist>
                 <div class="row" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;padding:1% 0;">
                   <div class="col-33">
                     <a href="mePublished.html" class="external blackColor">
