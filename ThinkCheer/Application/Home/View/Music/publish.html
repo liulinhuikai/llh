@@ -14,12 +14,29 @@
     <link rel="stylesheet" href="__PUBLIC__/front/css/style.css">
     <link rel="stylesheet" href="__PUBLIC__/front/css/llh.css">
     <script type="text/javascript" src="__PUBLIC__/front/js/jquery.js"></script>
+    <style type="text/css">
+      .toolbar-inner a{
+        width: 50%!important;
+      }
+       #img-file{
+          opacity: 0;
+          padding-left: 0;
+          width: 150px;
+          height: 50px;
+          border: 0;
+          position: absolute;
+        /*  top: 53px;
+          left: 22px;*/
+          bottom:5px;
+      }
+    </style>
 </head>
 <body>
 	<!-- Status bar overlay for fullscreen mode-->
-    <div class="statusbar-overlay"></div>
+  <div class="statusbar-overlay"></div>
+  <form action="{:U('Home/Music/doAdd')}" method="post" id="myform" name="myform" enctype="multipart/form-data" onsubmit="return mySubmit(true)" class="views whiteBGColor">
     <!-- Views-->
-    <div class="views whiteBGColor">
+    <!-- <div class="views whiteBGColor"> -->   
       <!-- Your main view, should have "view-main" class-->
       <div class="view view-main whiteBGColor">
         <!-- Top Navbar-->
@@ -30,43 +47,58 @@
           	</div>
             <div class="center sliding">发布音乐</div>
             <div class="right">
-            	<a href="#" style="color:Tomato">发布</a>
+            	<a href="#" type="submit" style="color:Tomato">发布</a>
             </div>
           </div>
         </div>
         <div class="pages navbar-through toolbar-through whiteBGColor">
 	        <div class="page-content">
 	        	<div class="list-block">
-				  <ul>
-				    <!-- Additional "align-top" class for correct textarea alignment -->
-				    <li class="align-top">
-				      <div class="item-content">
-				        <div class="item-inner">
-				          <div class="item-input">
-				            <textarea name="message" style="height:200px" placeholder="快说点什么吧，恩~音乐主题是什么呢"></textarea>
-				          </div>
-				        </div>
-				      </div>
-				    </li>
-				  </ul>
-				</div>
+    				  <ul>
+                <!-- Text inputs -->
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title label">标题：</div>
+                      <div class="item-input">
+                        <input type="text" name="title" placeholder="标题">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+    				    <!-- Additional "align-top" class for correct textarea alignment -->
+    				    <li class="align-top">
+    				      <div class="item-content">
+    				        <div class="item-inner">
+    				          <div class="item-input">
+    				            <textarea name="content" style="height:200px" placeholder="快说点什么吧，恩~音乐主题是什么呢"></textarea>
+    				          </div>
+    				        </div>
+    				      </div>
+    				    </li>
+    				  </ul>
+    				</div>
 	        </div>
-	    </div>
+	      </div>
 	    <!-- Bottom Toolbar-->
         <div class="toolbar tabbar tabbar-labels">
           <div class="toolbar-inner">
-              <a href="#" class="tab-link active" style="border-right:solid 1px #BDBDBD">
-                  <i class="icon fas fa-camera  fa-lg" style="color:Tomato"></i>
-                  <span class="tabbar-label redColor">添加照片</span>
-              </a>
-              <a href="find.html" class="tab-link">
-                  <i class="icon fas fa-music fa-lg" style="color:Tomato"></i>
-                  <span class="tabbar-label redColor">添加音乐</span>
-              </a>
+            <a href="javascript:;" class="tab-link active" style="border-right:solid 1px #BDBDBD">
+              <i class="icon fas fa-camera  fa-lg" style="color:Tomato"></i>
+              <span class="tabbar-label redColor">添加照片</span>
+              <input type="file" name="img" id="img-file"  capture="camera" multiple accept="image/*" onchange="handleFiles(this)"/> 
+            </a>
+            <a href="javascript:;" class="tab-link">
+              <i class="icon fas fa-music fa-lg" style="color:Tomato"></i>
+              <span class="tabbar-label redColor">添加音乐</span>
+              <input type="file" name="musichref" id="img-file"  capture="camera" multiple accept="music/*" onchange="handleFiles(this)" style="opactiy:0"/> 
+            </a>  
           </div>
         </div><!-- toolbar end -->
        </div>
-    </div>
+    <!-- </div> -->
+  </form>
 	<!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="__PUBLIC__/front/js/jquery-2.2.2.js"></script>
     <script type="text/javascript" src="__PUBLIC__/front/js/framework7.min.js"></script>
