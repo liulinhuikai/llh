@@ -2,7 +2,13 @@
 namespace Home\Controller;
 use Think\Controller;
 
-class MenuController extends Controller {
+class MusicController extends Controller {
+	public function lists(){
+		$musicModel = M("music");
+		$music = $musicModel->select();
+		$this->assign("music", $music);
+		$this->display();
+	}
 	// 添加菜谱add页
 	public function add(){
 		$this->display();
@@ -16,42 +22,47 @@ class MenuController extends Controller {
 	}
 
 	// lists页动态获取
-	public function lists($tagid){
-		// dump($tagid)
-		$menuModel = M("menu");
-		$menu = $menuModel->where("id=$tagid")->select();
-		$this->assign("menu", $menu);
+	// public function lists($tagid){
+	// 	// dump($tagid)
+	// 	$menuModel = M("menu");
+	// 	$menu = $menuModel->where("id=$tagid")->select();
+	// 	$this->assign("menu", $menu);
 
-		$recipeModel = M("recipe");
-		$recipe = $recipeModel->where("recipetagid = $tagid")->field("id,recipename,img")->select();
+	// 	$recipeModel = M("recipe");
+	// 	$recipe = $recipeModel->where("recipetagid = $tagid")->field("id,recipename,img")->select();
 
-		for($i = 0; $i < count($recipe); $i++) {
-			// 获取步骤中最后一张图
-			$pos = strripos($recipe[$i]['img'], "uploads");
-			$recipe[$i]["img"] = substr($recipe[$i]["img"], $pos);
-		}
-		// dump($recipe);
+	// 	for($i = 0; $i < count($recipe); $i++) {
+	// 		// 获取步骤中最后一张图
+	// 		$pos = strripos($recipe[$i]['img'], "uploads");
+	// 		$recipe[$i]["img"] = substr($recipe[$i]["img"], $pos);
+	// 	}
+	// 	// dump($recipe);
 
-		$this->assign("recipe", $recipe);
-		$this->display();
-	}
+	// 	$this->assign("recipe", $recipe);
+	// 	$this->display();
+	// }
 	//content页
 	public function content(){
-		$id = I("id");
-		$recipeModel = M('recipe');
-		$recipe = $recipeModel->where("id=$id")->find();//获取当前数据
+		// $id = I("id");
+		// $recipeModel = M('recipe');
+		// $recipe = $recipeModel->where("id=$id")->find();//获取当前数据
 
-		// 将字符串转为数组
-		$recipe["foodname"] = explode("&", $recipe["foodname"]);
-		$recipe["foodnum"] = explode("&", $recipe["foodnum"]);
-		$recipe["step"] = explode("&", $recipe["step"]);
-		$recipe["clocktime"] = explode("&", $recipe["clocktime"]);
-		$recipe["clocknum"] = explode("&", $recipe["clocknum"]);
-		$recipe["img"] = explode("&", $recipe["img"]);
+		// // 将字符串转为数组
+		// $recipe["foodname"] = explode("&", $recipe["foodname"]);
+		// $recipe["foodnum"] = explode("&", $recipe["foodnum"]);
+		// $recipe["step"] = explode("&", $recipe["step"]);
+		// $recipe["clocktime"] = explode("&", $recipe["clocktime"]);
+		// $recipe["clocknum"] = explode("&", $recipe["clocknum"]);
+		// $recipe["img"] = explode("&", $recipe["img"]);
 		
-		// dump($recipe);
+		// // dump($recipe);
 
-		$this->assign("recipe",$recipe);
+		// $this->assign("recipe",$recipe);
+		$id = I("id");
+        $musicModel = M("music");
+        $music = $musicModel->join('users ON music.userid = users.userid');
+        $music = $music->where("music.mid=$id")->select();
+        $this->assign("music", $music);
 		$this->display();
 	}
 	//steps页

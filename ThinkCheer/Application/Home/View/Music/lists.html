@@ -35,22 +35,24 @@
 	        <div class="page-content">
 	        	<div class="list-block">
 				  <ul>
+				  <volist name="music" id="m">
 					<li>
 					  	<div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px">
 		                  <div class="col-5"></div>
 		                  <div class="col-33">
-		                    <img src="__PUBLIC__/front/img/2.jpg" width="100%" class="userImg">
+		                    <img src="__PUBLIC__/{$m.img}" width="100%" class="userImg">
 		                  </div>
 		                  <div class="col-50">
-		                    <p>93年韩国女歌手IU的致姓名，打动人心</p>
+		                    <p>{$m.title}</p>
 		                  </div>
 		                  <div class="col-5" style="padding-top:10%">
-		                    <a href="musicContent.html" class="grayColor"><i class="fas fa-angle-right  fa-2x"></i></a>
+		                    <a href="__MODULE__/Music/content/id/{$m.mid}" class="grayColor"><i class="fas fa-angle-right  fa-2x"></i></a>
 		                  </div>
 		                  <div class="col-10"></div>
 		                </div>
 		            </li>
-		            <li>
+		          </volist>
+		            <!-- <li>
 					  	<div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px">
 		                  <div class="col-5"></div>
 		                  <div class="col-33">
@@ -94,7 +96,7 @@
 		                  </div>
 		                  <div class="col-10"></div>
 		                </div>
-		            </li>
+		            </li> -->
 				  </ul>
 				</div>
 			</div>
