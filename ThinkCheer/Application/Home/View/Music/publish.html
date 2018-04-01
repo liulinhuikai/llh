@@ -34,7 +34,7 @@
 <body>
 	<!-- Status bar overlay for fullscreen mode-->
   <div class="statusbar-overlay"></div>
-  <form action="{:U('Home/Music/doAdd')}" method="post" id="myform" name="myform" enctype="multipart/form-data" onsubmit="return mySubmit(true)" class="views whiteBGColor">
+  <form action="{:U('Home/Music/doPublish')}" method="post" id="myform" name="myform" enctype="multipart/form-data" onsubmit="return mySubmit(true)" class="views whiteBGColor">
     <!-- Views-->
     <!-- <div class="views whiteBGColor"> -->   
       <!-- Your main view, should have "view-main" class-->
@@ -47,7 +47,7 @@
           	</div>
             <div class="center sliding">发布音乐</div>
             <div class="right">
-            	<a href="#" type="submit" style="color:Tomato">发布</a>
+            	<button type="submit" name="submit" style="color:Tomato;background-color:#fff;display:block;font-size:16px;opactiy:0;border:none">发布</button>
             </div>
           </div>
         </div>
@@ -84,15 +84,15 @@
 	    <!-- Bottom Toolbar-->
         <div class="toolbar tabbar tabbar-labels">
           <div class="toolbar-inner">
-            <a href="javascript:;" class="tab-link active" style="border-right:solid 1px #BDBDBD">
+            <a href="#" class="tab-link active" style="border-right:solid 1px #BDBDBD">
               <i class="icon fas fa-camera  fa-lg" style="color:Tomato"></i>
               <span class="tabbar-label redColor">添加照片</span>
-              <input type="file" name="img" id="img-file"  capture="camera" multiple accept="image/*" onchange="handleFiles(this)"/> 
+              <input type="file" name="img" id="img-file" /> 
             </a>
-            <a href="javascript:;" class="tab-link">
+            <a href="#" class="tab-link">
               <i class="icon fas fa-music fa-lg" style="color:Tomato"></i>
               <span class="tabbar-label redColor">添加音乐</span>
-              <input type="file" name="musichref" id="img-file"  capture="camera" multiple accept="music/*" onchange="handleFiles(this)" style="opactiy:0"/> 
+              <input type="file" name="musichref" id="img-file" style="opactiy:0"/> 
             </a>  
           </div>
         </div><!-- toolbar end -->
