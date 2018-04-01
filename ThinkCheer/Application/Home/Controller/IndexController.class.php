@@ -15,4 +15,7 @@ class IndexController extends Controller {
     	// $this->assign("article", $article);
         $this->display();
     }
+    public function find(){
+        $this->display();
+    }
 }
