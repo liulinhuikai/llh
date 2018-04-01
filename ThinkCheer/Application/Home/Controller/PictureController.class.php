@@ -1,10 +1,17 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class NowaitController extends Controller {
-    public function requestlist(){
+class PictureController extends Controller {
+
+      public function list(){
+        $this->display();
+    }
+     public function content(){
+        $this->display();
+    }
+    public function picture(){
     	//1获取数据
-    	$Model=M('orderform'); 
+    	$Model=M('picture'); 
         //连接数据表
     	$order=$Model->join('address ON orderform.addressid = address.id')->join('user ON orderform.makerid = user.id');
         // $where =$Model['purchaserid']=array('EQ','NULL'); 
@@ -24,7 +31,7 @@ class NowaitController extends Controller {
     	//3显示视图
     	$this->display();
     }
-
+  
     public function basketlist(){
         //菜篮中别人的东西
         $Model=M('orderform');
