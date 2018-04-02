@@ -52,72 +52,30 @@
 	            <div id="tab1" class="tab active">
 	              <!-- <div class="content-block"> -->
 	                <ul>
-			            <li>
-				            <div class="card demo-card-header-pic">
-							  <div style="background:url(__PUBLIC__/front/img/1.jpg) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
-							  <div class="card-content">
-							    <div class="card-content-inner">
-							      <p class="color-gray">Posted on January 21, 2015</p>
-							      <p>Quisque eget vestibulum nulla...</p>
-							    </div>
-							  </div>
-							  <div class="card-footer">
-							    <a href="#" class="link">
-				                    <i class="far fa-thumbs-up grayColor"></i>
-				                    <span class="grayColor">&nbsp;点赞</span>
-				                </a>
-				                <a href="#" class="link">
-				                    <i class="far fa-comment-alt grayColor"></i>
-				                    <span class="grayColor">&nbsp;评论</span>
-				                </a>
-							    <a href="#" class="link">更多 >></a>
-							  </div>
-							</div><!--1-->
-						</li>
-						<li>
-							<div class="card demo-card-header-pic">
-							  <div style="background:url(__PUBLIC__/front/img/1.jpg) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
-							  <div class="card-content">
-							    <div class="card-content-inner">
-							      <p class="color-gray">Posted on January 21, 2015</p>
-							      <p>Quisque eget vestibulum nulla...</p>
-							    </div>
-							  </div>
-							  <div class="card-footer">
-							    <a href="#" class="link">
-				                    <i class="far fa-thumbs-up grayColor"></i>
-				                    <span class="grayColor">&nbsp;点赞</span>
-				                </a>
-				                <a href="#" class="link">
-				                    <i class="far fa-comment-alt grayColor"></i>
-				                    <span class="grayColor">&nbsp;评论</span>
-				                </a>
-							    <a href="#" class="link">更多 >></a>
-							  </div>
-							</div><!--2-->
-						</li>
-						<li>
-							<div class="card demo-card-header-pic">
-							  <div style="background:url(__PUBLIC__/front/img/1.jpg) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
-							  <div class="card-content">
-							    <div class="card-content-inner">
-							      <p class="color-gray">Posted on January 21, 2015</p>
-							      <p>Quisque eget vestibulum nulla...</p>
-							    </div>
-							  </div>
-							  <div class="card-footer">
-							    <a href="#" class="link">
-				                    <i class="far fa-thumbs-up grayColor"></i>
-				                    <span class="grayColor">&nbsp;点赞</span>
-				                </a>
-				                <a href="#" class="link">
-				                    <i class="far fa-comment-alt grayColor"></i>
-				                    <span class="grayColor">&nbsp;评论</span>
-				                </a>
-							    <a href="#" class="link">更多 >></a>
-							  </div>
-							</div><!--2-->
-						</li>
+		                <volist name="collcommend" id="c">
+				            <li>
+					            <div class="card demo-card-header-pic">
+								  <div style="background:url(__PUBLIC__/{$c.img}) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">vol. {$c.comid} {$c.title}</div>
+								  <div class="card-content">
+								    <div class="card-content-inner">
+								      <p class="color-gray">{$c.date}</p>
+								      <p>{$c.content}</p>
+								    </div>
+								  </div>
+								  <div class="card-footer">
+								    <a href="#" class="link">
+					                    <i class="far fa-thumbs-up grayColor"></i>
+					                    <span class="grayColor">&nbsp;点赞</span>
+					                </a>
+					                <a href="#" class="link">
+					                    <i class="far fa-comment-alt grayColor"></i>
+					                    <span class="grayColor">&nbsp;评论</span>
+					                </a>
+								    <a href="#" class="link">更多 >></a>
+								  </div>
+								</div><!--1-->
+							</li>
+						</volist>		
 					</ul>
 	              <!-- </div> -->
 	            </div>
@@ -125,75 +83,56 @@
 	            <div id="tab2" class="tab">
 	              <!-- <div class="content-block"> -->
 	                <ul>
-	                	<li>
-	                		<div class="card facebook-card">
-							  <div class="card-header no-border">
-							    <div class="facebook-avatar"><img src="__PUBLIC__/front/img/2.jpg" width="34" height="34"></div>
-							    <div class="facebook-name">John Doe</div>
-							    <div class="facebook-date">Monday at 3:47 PM</div>
-							  </div>
-							  <div class="card-content"><img src="__PUBLIC__/front/img/2.jpg" width="100%"></div>
-							  <div class="card-footer no-border">
-							    <a href="#" class="link">
-				                   <i class="fas fa-share-square"></i>
-				                   <span>&nbsp;转发</span>
-				                </a>
-				                <a href="#" class="link">
-				                    <i class="far fa-comment-alt"></i>
-				                    <span>&nbsp;评论</span>
-				                </a>
-				                <a href="#" class="link">
-				                    <i class="far fa-thumbs-up"></i>
-				                    <span>&nbsp;点赞</span>
-				                </a>
-							  </div>
-							</div>
-	                	</li>
-	                	<li>
-	                		<div class="card facebook-card">
-							  <div class="card-header no-border">
-							    <div class="facebook-avatar"><img src="__PUBLIC__/front/img/2.jpg" width="34" height="34"></div>
-							    <div class="facebook-name">John Doe</div>
-							    <div class="facebook-date">Monday at 3:47 PM</div>
-							  </div>
-							  <div class="card-content"><img src="__PUBLIC__/front/img/2.jpg" width="100%"></div>
-							  <div class="card-footer no-border">
-							    <a href="#" class="link">
-				                   <i class="fas fa-share-square"></i>
-				                   <span>&nbsp;转发</span>
-				                </a>
-				                <a href="#" class="link">
-				                    <i class="far fa-comment-alt"></i>
-				                    <span>&nbsp;评论</span>
-				                </a>
-				                <a href="#" class="link">
-				                    <i class="far fa-thumbs-up"></i>
-				                    <span>&nbsp;点赞</span>
-				                </a>
-							  </div>
-							</div>
-	                	</li>
+		                <volist name="collpicture" id="p">
+		                	<li>
+		                		<div class="card facebook-card">
+								  <div class="card-header no-border">
+								    <div class="facebook-avatar"><img src="__PUBLIC__/{$p.headimg}" width="34" height="34"></div>
+								    <div class="facebook-name">{$p.username}</div>
+								    <div class="facebook-date">{$p.date}</div>
+								  </div>
+								  <div class="card-content"><img src="__PUBLIC__/{$p.img}" width="100%"></div>
+								  <div class="card-footer no-border">
+								    <a href="#" class="link">
+					                   <i class="fas fa-share-square"></i>
+					                   <span>&nbsp;转发</span>
+					                </a>
+					                <a href="#" class="link">
+					                    <i class="far fa-comment-alt"></i>
+					                    <span>&nbsp;评论</span>
+					                </a>
+					                <a href="#" class="link">
+					                    <i class="far fa-thumbs-up"></i>
+					                    <span>&nbsp;点赞</span>
+					                </a>
+								  </div>
+								</div>
+		                	</li>
+		                </volist>
 	                </ul>
 	              <!-- </div> -->
 	            </div>
 	            <!-- 文章 -->
 	            <div id="tab3" class="tab">
 		            <ul>
+		              <volist name="collarticle" id="a">
 		            	<li>
 		            		<div class="card facebook-card">
 				                <div class="card-header">
 				                  <div class="fb">
 				                    <div class="facebook-avatar">
-				                      <img src="__PUBLIC__/front/img/2.jpg" width="34" height="34">
+				                      <img src="__PUBLIC__/{$a.headimg}" width="34" height="34">
 				                    </div>
-				                    <div class="facebook-name" style="font-size:16px">John Doe</div>
-				                    <div class="facebook-date">Monday at 2:15 PM</div>
+				                    <div class="facebook-name" style="font-size:16px">{$a.username}</div>
+				                    <div class="facebook-date">{$a.date}</div>
 				                  </div>
 				                  <a href="#" class="button followBtn" style="color:Tomato;border-color: #FF5722;">关注</a>
 				                </div>
 				                <div class="card-content">
 				                  <div class="card-content-inner">
-				                    <p class="font16">What a nice photo i took yesterday!</p>
+				                    <p class="font16" style="text-indent:2em"> 
+				                     {$a['content']|mb_substr=0,31,'utf-8'}...
+				                    </p>
 				                    <img src="__PUBLIC__/front/img/1.jpg" width="280" height="140">
 				                  </div>
 				                </div>
@@ -213,57 +152,26 @@
 				                </div>
 				            </div> 
 		            	</li>
-		            	<li>
-		            		<div class="card facebook-card">
-				                <div class="card-header">
-				                  <div class="fb">
-				                    <div class="facebook-avatar">
-				                      <img src="__PUBLIC__/front/img/2.jpg" width="34" height="34">
-				                    </div>
-				                    <div class="facebook-name" style="font-size:16px">John Doe</div>
-				                    <div class="facebook-date">Monday at 2:15 PM</div>
-				                  </div>
-				                  <a href="#" class="button followBtn" style="color:Tomato;border-color: #FF5722;">关注</a>
-				                </div>
-				                <div class="card-content">
-				                  <div class="card-content-inner">
-				                    <p class="font16">What a nice photo i took yesterday!</p>
-				                    <img src="__PUBLIC__/front/img/1.jpg" width="280" height="140">
-				                  </div>
-				                </div>
-				                <div class="card-footer">
-				                  <a href="#" class="link">
-				                   <i class="fas fa-share-square"></i>
-				                   <span>&nbsp;转发</span>
-				                  </a>
-				                  <a href="#" class="link">
-				                    <i class="far fa-comment-alt"></i>
-				                    <span>&nbsp;评论</span>
-				                  </a>
-				                  <a href="#" class="link">
-				                    <i class="far fa-thumbs-up"></i>
-				                    <span>&nbsp;点赞</span>
-				                  </a>
-				                </div>
-				            </div> 
-		            	</li>
+		              </volist>
 		            </ul>
 	            </div>
 	            <!-- 音乐 -->
 	            <div id="tab4" class="tab">
 	              <div class="list-block media-list" style="margin-top:2%">
 		            <ul>
+		            <volist name="collmusic" id="m">
 			          <li>
-			            <a href="#" class="item-link item-content">
-			              <div class="item-media"><img src="__PUBLIC__/front/img/iup.jpg" width="44" height="44"></div>
+			            <a href="__MODULE__/Music/play/id/{$m.mid}" class="external item-link item-content">
+			              <div class="item-media"><img src="__PUBLIC__/{$m.img}" width="44" height="44"></div>
 			              <div class="item-inner">
 			                <div class="item-title-row">
-			                  <div class="item-title">致姓名</div>
+			                  <div class="item-title">{$m.musicname}</div>
 			                </div>
-			                <div class="item-subtitle">iu(李智恩)</div>
+			                <div class="item-subtitle">{$m.musicauthor}</div>
 			              </div>
 			            </a>
 			          </li>
+			        </volist>
 			          <li>
 			            <a href="#" class="item-link item-content">
 			              <div class="item-media"><img src="__PUBLIC__/front/img/Adele.jpg" width="44" height="44"></div>
@@ -299,17 +207,6 @@
 			          </li>
 			          <li>
 			            <a href="#" class="item-link item-content">
-			              <div class="item-media"><img src="__PUBLIC__/front/img/Adelesome.jpg" width="44"></div>
-			              <div class="item-inner">
-			                <div class="item-title-row">
-			                  <div class="item-title">Someone Like You</div>
-			                </div>
-			                <div class="item-subtitle">Adele</div>
-			              </div>
-			            </a>
-			          </li>
-			          <li>
-			            <a href="#" class="item-link item-content">
 			              <div class="item-media"><img src="__PUBLIC__/front/img/iuf.jpg" width="44" height="44"></div>
 			              <div class="item-inner">
 			                <div class="item-title-row">
@@ -325,22 +222,25 @@
 	            <!-- 动态 -->
 	            <div id="tab5" class="tab">
 		            <ul>
+		            <volist name="collstate" id="s">
 		            	<li>
 		            		<div class="card facebook-card">
 				                <div class="card-header">
 				                  <div class="fb">
 				                    <div class="facebook-avatar">
-				                      <img src="__PUBLIC__/front/img/2.jpg" width="34" height="34">
+				                      <img src="__PUBLIC__/{$s.headimg}" width="34" height="34">
 				                    </div>
-				                    <div class="facebook-name" style="font-size:16px">John Doe</div>
-				                    <div class="facebook-date">Monday at 2:15 PM</div>
+				                    <div class="facebook-name" style="font-size:16px">{$s.username}</div>
+				                    <div class="facebook-date">{$s.date}</div>
 				                  </div>
 				                  <a href="#" class="button followBtn" style="color:Tomato;border-color: #FF5722;">关注</a>
 				                </div>
 				                <div class="card-content">
 				                  <div class="card-content-inner">
-				                    <p class="font16">What a nice photo i took yesterday!</p>
-				                    <img src="__PUBLIC__/front/img/1.jpg" width="280" height="140">
+				                    <p class="font16" style="text-indent:2em">
+				                    	{$s['content']|mb_substr=0,31}...
+				                    </p>
+				                    <img src="__PUBLIC__/{$s.img}" width="280" height="140">
 				                  </div>
 				                </div>
 				                <!-- 音乐部分 -->
@@ -350,15 +250,15 @@
 									  	<div class="row list-block media-list" style="border-bottom-style:solid;border-width:thin;border-color: #E0E0E0;margin-bottom:1px;margin-top:1px">
 						                  <div class="col-5"></div>
 						                  <div class="col-20">
-						                    <img src="__PUBLIC__/front/img/Adele.jpg" width="100%" class="userImg" style="padding-top:12%">
+						                    <img src="__PUBLIC__/{$s.img}" width="100%" class="userImg" style="padding-top:12%">
 						                  </div>
 						                  <div class="col-50">
-						                    <h3 style="padding-top:2%">Someone Like You</h3>
+						                    <h3 style="padding-top:2%">Someone like you</h3>
 						                    <p style="margin-top:2%">Adele</p>
 						                  </div>
 						                  <div class="col-20" style="padding-top:5%">
 						                    <a href="musicContent.html" class="external">
-						                    	<audio src="music/Adele-Someone Like You.mp3"></audio>
+						                    	<audio src="__PUBLIC__/{$s.music}"></audio>
 						                    	<i class="fas fa-play-circle fa-lg grayColor"></i>
 						                    </a>
 						                  </div>
@@ -384,6 +284,7 @@
 				                </div>
 				            </div>
 		            	</li>
+		            </volist>
 		            	<li>
 		            		<div class="card facebook-card">
 				                <div class="card-header">

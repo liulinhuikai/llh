@@ -1,4 +1,4 @@
-k<?php
+<?php
 namespace Home\Controller;
 use Think\Controller;
 
@@ -14,7 +14,7 @@ class MusicController extends Controller {
 		$this->display();
 	}
 	//有问题
-	public function doAdd(){
+	public function doPublish(){
 		$uploadimg = new \Think\Upload();// 实例化图片上传类
 
 	    $uploadimg->maxSize   =     3145728 ;// 设置附件上传大小
@@ -26,7 +26,7 @@ class MusicController extends Controller {
 
 	    $uploadmusic = new \Think\Upload();// 实例化音乐上传类
 
-	    $uploadmusic->maxSize   =     5*1024*1024 ;// 设置附件上传大小
+	    $uploadmusic->maxSize   =     3*1024*1024 ;// 设置附件上传大小
 	    $uploadmusic->exts      =     array('mp3');// 设置附件上传类型
 	    $uploadmusic->rootPath  =     THINK_PATH; // 设置附件上传根目录
 	    $uploadmusic->savePath  =     '../Public/uploads/'; // 设置附件上传（子）目录
@@ -35,10 +35,17 @@ class MusicController extends Controller {
 
 		$musicModel = D('music');
 		$data = $musicModel->create();
+		$data['title'] = I("post.title");
+		$data['content'] = I("post.content");
+		$name = I("session.username");//获取当前用户名
+		$userModel = M("users");
+        $userId = $userModel->getFieldByusername($name,'userid');//获取当前用户id
+        $data['userid'] = $userId;
+        $data['date'] = date("Y-m-d h:m:s");//获取当前时间
 
     	//设置headimg属性值
     	$data['img'] = $infoimg['img']['savepath'].$infoimg['img']['savename'];
-    	$data['music'] = $infomusic['music']['savepath'].$infomusic['music']['savename'];
+    	$data['musichref'] = $infomusic['musichref']['savepath'].$infomusic['musichref']['savename'];
 		$musicModel->add($data);
 		$this->redirect("lists");
 
