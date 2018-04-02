@@ -50,6 +50,7 @@ class ArticleController extends Controller {
 			
 			if($booksModel->filter('strip_tags')->add($bookdata)){
 				$this->success("添加成功",U("lists"));
+				dump($bookdata['img']);
 			}else{
 				$this->error("添加失败");
 			}

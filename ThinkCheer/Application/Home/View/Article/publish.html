@@ -78,7 +78,9 @@
                         <textarea style="height:200px" placeholder="说点什么吧" name="content"></textarea>
                       </div>
                     </div>
+                   
                   </div>
+                  <div> <img src="" height="100" ></div>
                 </li>
               </ul>
           </div>
@@ -90,7 +92,7 @@
               <a href="#" class="tab-link active" style="border-right:solid 1px #BDBDBD">
                   <i class="icon fas fa-camera  fa-lg" style="color:Tomato"></i>
                   <span class="tabbar-label redColor">添加照片</span>
-                     <input type="file" id="img-file"   name="photo" style="opactiy:0"/> 
+                     <input type="file" id="img-file"   name="photo" style="opactiy:0" onchange="previewFile()" /> 
               </a>
             
           </div>
@@ -104,5 +106,23 @@
     <script type="text/javascript" src="__PUBLIC__/front/js/jquery-2.2.2.js"></script>
     <script type="text/javascript" src="__PUBLIC__/front/js/framework7.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/front/js/fontawesome-all.min.js"></script>
+    <script type="text/javascript">
+  function previewFile() {
+  var preview = document.querySelector('img');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
+</script>
+
 </body>
 </html>
