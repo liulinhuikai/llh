@@ -17,7 +17,52 @@ class MeController extends Controller {
         $this->display();
     }
 
-    public function setting(){
+    public function content(){
+        $this->display();
+    }
+    //我的收藏页
+    public function collection(){
+        $userModel = M("users");
+        $commendModel = M("commend");
+        $pictureModel = M("picture");
+        $articleModel = M("article");
+        $musicModel = M("music");
+        $stateModel = M("state");
+
+        $name = I("session.username");//获取当前用户名
+        $userId = $userModel->getFieldByusername($name,'userid');//获取当前用户id
+        // dump($userId);
+        // $collcid = $collcommend->where("collcuid = $userId")->order('cdate desc')->field("collcid")->select();
+        // $collpid = $collpicture->where("collpuid = $userId")->order('date desc')->select();
+        // $collaid = $collarticle->where("collauid = $userId")->order('date desc')->select();
+        // $collmid = $collmusic->where("collmuid = $userId")->order('date desc')->select();
+        // $collsid = $collstate->where("collsuid = $userId")->order('date desc')->select();
+
+        $commend = $commendModel->join('collectcommend ON commend.comid = collectcommend.collcid');
+        $collcommend = $commend->order('cdate desc')->select();
+        // dump($collcommend);
+
+        $picture = $pictureModel->join('collectpicture ON picture.pid = collectpicture.collpid')->join('users ON picture.puid = users.userid');
+        // ->join('picture ON users.userid = picture.puid');
+        $collpicture = $picture->order('pdate desc')->select();
+        // dump($collpicture);
+
+        $article = $articleModel->join('collectarticle ON article.aid = collectarticle.collaid')->join('users ON article.auid = users.userid');
+        // ->join('picture ON users.userid = picture.puid');
+        $collarticle = $article->order('adate desc')->select();
+
+        $music = $musicModel->join('collectmusic ON music.mid = collectmusic.collmid')->join('users ON music.userid = users.userid');
+        $collmusic = $music->order('mdate desc')->select();
+
+        $state = $stateModel->join('collectstate ON state.sid = collectstate.collsid')->join('users ON state.suid = users.userid');
+        $collstate = $state->order('sdate desc')->select();
+
+        $this->assign("collcommend", $collcommend );
+        $this->assign("collpicture", $collpicture );
+        $this->assign("collarticle", $collarticle );
+        $this->assign("collmusic", $collmusic );
+        $this->assign("collstate", $collstate);
+
         $this->display();
     }
 
