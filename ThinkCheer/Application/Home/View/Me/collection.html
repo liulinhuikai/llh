@@ -55,11 +55,13 @@
 		                <volist name="collcommend" id="c">
 				            <li>
 					            <div class="card demo-card-header-pic">
+					            <a href="__MODULE__/Commend/content/id/{$c.comid}" class="external">
 								  <div style="background:url(__PUBLIC__/{$c.img}) center no-repeat;background-size:cover;height:160px" valign="bottom" class="card-header color-white no-border">vol. {$c.comid} {$c.title}</div>
+								</a>
 								  <div class="card-content">
 								    <div class="card-content-inner">
 								      <p class="color-gray">{$c.date}</p>
-								      <p>{$c.content}</p>
+								      <p class="font16">{$c.content}</p>
 								    </div>
 								  </div>
 								  <div class="card-footer">
@@ -71,7 +73,7 @@
 					                    <i class="far fa-comment-alt grayColor"></i>
 					                    <span class="grayColor">&nbsp;评论</span>
 					                </a>
-								    <a href="#" class="link">更多 >></a>
+								    <a href="__MODULE__/Commend/content/id/{$c.comid}" class="link">更多 >></a>
 								  </div>
 								</div><!--1-->
 							</li>
@@ -91,7 +93,9 @@
 								    <div class="facebook-name">{$p.username}</div>
 								    <div class="facebook-date">{$p.date}</div>
 								  </div>
-								  <div class="card-content"><img src="__PUBLIC__/{$p.img}" width="100%"></div>
+								  <a href="__MODULE__/Picture/content/id/{$p.pid}" class="external">
+								  	<div class="card-content"><img src="__PUBLIC__/{$p.img}" width="100%"></div>
+								  </a>
 								  <div class="card-footer no-border">
 								    <a href="#" class="link">
 					                   <i class="fas fa-share-square"></i>
@@ -129,12 +133,13 @@
 				                  <a href="#" class="button followBtn" style="color:Tomato;border-color: #FF5722;">关注</a>
 				                </div>
 				                <div class="card-content">
-				                  <div class="card-content-inner">
-				                    <p class="font16" style="text-indent:2em"> 
-				                     {$a['content']|mb_substr=0,31,'utf-8'}...
-				                    </p>
-				                    <img src="__PUBLIC__/front/img/1.jpg" width="280" height="140">
-				                  </div>
+				                  <a class="external" href="__MODULE__/Article/content/id/{$a.aid}">
+					                <div class="card-content-inner">
+					                   <p class="font16 blackColor" style="text-indent:2em"> {$a['content']|mb_substr=0,31,'utf-8'}...
+					                   </p>
+					                   <img src="__PUBLIC__/front/img/1.jpg" width="280" height="140">
+					                </div>
+				                  </a>
 				                </div>
 				                <div class="card-footer">
 				                  <a href="#" class="link">
